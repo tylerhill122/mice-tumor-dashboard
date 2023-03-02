@@ -1,9 +1,9 @@
-const url = "/barchart_data"
+const bar_url = "/barchart_data"
 
-d3.json(url).then((data) => {
+d3.json(bar_url).then((data) => {
     console.log(data);
-    Bar(data.drug, data.value)
-})
+    Bar(data.item, data.value)
+});
 
 function Bar(x, y) {
     var data = [{
@@ -61,4 +61,26 @@ function Bar(x, y) {
       };
 
     Plotly.newPlot('barChart', data, layout);
-}
+};
+
+const pie_url = "/piechart_data"
+
+d3.json(pie_url).then((data) => {
+    console.log(data);
+    Pie(data.value, data.item)
+});
+
+function Pie(values, labels) {
+    var data = [{
+        values: values,
+        labels: labels,
+        type: 'pie',
+    }];
+      
+    var layout = {
+        height: 400,
+        width: 500
+    };
+      
+    Plotly.newPlot('pieChart', data, layout);
+};
