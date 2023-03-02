@@ -8,6 +8,9 @@ d3.json(url).then((data) => {
 function Bar(x, y) {
     var data = [{
         type: 'bar',
+        text: y.map(String),
+        textposition: 'auto',
+        hoverinfo: 'none',
         orientation: 'v',
         x: x,
         y: y,
@@ -24,7 +27,7 @@ function Bar(x, y) {
             text:'Number of Data Points For Each Drug Regimen',
             font: {
                 family: 'Courier New, monospace',
-                size: 24,
+                size: 20,
                 color: "#325D79"
             },
             xref: 'paper',
@@ -34,24 +37,25 @@ function Bar(x, y) {
                 text: 'Number of Data Readings',
                 font: {
                     family: 'Courier New, monospace',
-                    size: 20,
+                    size: 16,
                     color: "#325D79"
                 }
             },
-            range: [120, 210],
+            range: [120, 220],
+            autorange: true,
         },
         xaxis: {
             title: {
                 text: 'Drug Regimen',
                 font: {
                     family: 'Courier New, monospace',
-                    size: 20,
+                    size: 16,
                     color: "#325D79"
                 }
             },
         },
         font: {
-            size: 14,
+            size: 12,
             color: "#325D79"
         }
       };
