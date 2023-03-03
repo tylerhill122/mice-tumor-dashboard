@@ -78,8 +78,15 @@ function Pie(values, labels) {
     }];
       
     var layout = {
-        height: 400,
-        width: 500
+        title: {
+            text:'Distribution of Subjects (Male vs. Female)',
+            font: {
+                family: 'Courier New, monospace',
+                size: 14,
+                color: "#325D79"
+            },
+            xref: 'paper',
+        },
     };
       
     Plotly.newPlot('pieChart', data, layout);
