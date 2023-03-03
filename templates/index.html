@@ -20,7 +20,10 @@
     <div id="summary_stats">{{data.summary_stats()|safe}}</div>
     <div id="barChart"></div>
     <div id="pieChart"></div>
-    <div id="iqr_df">{{data.iqr().to_html()|safe}}</div>
+    <div id="iqr_df">{{data.iqr_df()[0].to_html()|safe}}</div>
+    <div id="boxPlot"><img src="{{ url_for('static', filename='images/tumor_volume_treatments.png') }}"></div>
+    <div><input id="clickMe" type="button" value="Generate new plot with 5 random mice" onclick="Line(); deleteTrace();" /></div>
+    <div id="linePlot"></div>
     <p>More Content Here</p>
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>

@@ -1,7 +1,6 @@
 const bar_url = "/barchart_data"
 
 d3.json(bar_url).then((data) => {
-    console.log(data);
     Bar(data.item, data.value)
 });
 
@@ -66,7 +65,6 @@ function Bar(x, y) {
 const pie_url = "/piechart_data"
 
 d3.json(pie_url).then((data) => {
-    console.log(data);
     Pie(data.value, data.item)
 });
 
@@ -91,3 +89,40 @@ function Pie(values, labels) {
       
     Plotly.newPlot('pieChart', data, layout);
 };
+
+const line_url = "/line_data"
+const traces = []
+
+function deleteTrace(){
+    Plotly.deleteTraces('linePlot', [0,1,2,3,4]);
+  };
+function Line() {
+    d3.json(line_url).then((data) => {
+        for (let x in data.name) {
+          let mouseName = data.name[x];
+          let time = data.time[x];
+          let tv = data.tv[x];
+          traces.push({
+            type: 'scatter',
+            x: time,
+            y: tv,
+            name: mouseName,
+          });
+        };
+
+    var layout = {
+        title: 'Tumor Volume over time for 5 random mice treated with Capomulin',
+        xaxis: {
+            title: 'Time (in days)',
+            showgrid: false,
+            zeroline: false
+        },
+        yaxis: {
+            title: 'Tumor Volume (mm3)',
+            showline: false
+        }
+    };
+    Plotly.newPlot('linePlot', traces, layout)
+    });
+};
+Line();

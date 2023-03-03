@@ -15,5 +15,9 @@ def barchart_data():
 def piechart_data():
     return data.pie()
 
+@app.route("/line_data")
+def line_data():
+    return data.line()
+
 if __name__ == "__main__":
     app.run(debug=True)
