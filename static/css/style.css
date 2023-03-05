@@ -1,3 +1,8 @@
+h1 {text-align: center;}
+h2 {
+    text-align: center;
+}
+
 #barChart {
     width: 600px;
     height: 500px;
@@ -11,4 +16,33 @@
 #boxPlot img{
     width: 582px;
     height: 417px;
+}
+
+.summary_stats {
+    display: block;
+    align-items: center;
+}
+
+.tables table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+}
+  
+.tables td, .tables th {
+    border: 1px solid #ddd;
+    padding: 5px;
+}
+
+.tables tr:nth-child(even){background-color: #f2f2f2;}
+
+.tables tr:hover {background-color: #ddd;}
+
+.tables th {
+padding-top: 8px;
+padding-bottom: 8px;
+text-align: left;
+background-color: cornflowerblue;
+opacity: 70%;
+color: white;
 }

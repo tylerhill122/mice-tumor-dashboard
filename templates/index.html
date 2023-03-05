@@ -5,28 +5,53 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mice Tumor Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <h1>Mice Tumor Dashboard</h1>
-    <ul>
-        <li>Summary Statistics</li>
-        <li>Data Points per Drug Regimen</li>
-        <li>Distribution of Mice (Male vs. Female)</li>
-        <li>Four Drug Treatments (IQR) - Boxplot</li>
-        <li>Tumor Volume Over Time (Capomulin)</li>
-        <li>Average Tumor Volume vs Weight (Capomulin) Scatterplot + Linear Regression</li>
-    </ul>
-    <div id="summary_stats">{{data.summary_stats()|safe}}</div>
-    <div id="barChart"></div>
-    <div id="pieChart"></div>
-    <div id="iqr_df">{{data.iqr_df()[0].to_html()|safe}}</div>
-    <div id="boxPlot"><img src="{{ url_for('static', filename='images/tumor_volume_treatments.png') }}"></div>
-    <div><input id="clickMe" type="button" value="Generate new plot with 5 random mice" onclick="Line(); deleteTrace();" /></div>
-    <div id="linePlot"></div>
-    <p>More Content Here</p>
-    <script src="https://d3js.org/d3.v5.min.js"></script>
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <script src="{{ url_for('static', filename='js/logic.js') }}"></script>
+    <div class="container">
+        <div class="row">
+            <div class="page-header">
+                <h1>Mice Tumor Dashboard</h1>
+            </div>
+            <div id="intro-box">The purpose of this dashboard is to analyze and display valuable insights from data using matplotlib and Pandas. The methods used include generating summary statistics, bar and pie charts, line plots and scatter plots with regression and Pearson r values, calculation of quartiles, IQR, and finding outliers.</div>
+            <div>
+                <ul>
+                    <li>Summary Statistics</li>
+                    <li>Data Points per Drug Regimen</li>
+                    <li>Distribution of Mice (Male vs. Female)</li>
+                    <li>Four Drug Treatments (IQR) - Boxplot</li>
+                    <li>Tumor Volume Over Time (Capomulin)</li>
+                    <li>Average Tumor Volume vs Weight (Capomulin) Scatterplot + Linear Regression</li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <h2>Summary Statistics</h2>
+            <div class="tables">{{data.summary_stats()|safe}}</div>
+        </div>
+        <div class="row">
+            <div id="barChart"></div>
+        </div>
+        <div class="row">
+            <div id="pieChart"></div>
+        </div>
+        <div class="row">
+            <div id="iqr_df" class="tables">{{data.iqr_df()[0].to_html()|safe}}</div>
+        </div>
+        <div class="row">
+            <div id="boxPlot"><img src="{{ url_for('static', filename='images/tumor_volume_treatments.png') }}"></div>
+        </div>
+        <div class="row">
+            <div><input id="clickMe" type="button" value="Generate new plot with 5 random mice" onclick="Line(); deleteTrace();" /></div>
+            <div id="linePlot"></div>
+        </div>
+        <div class="row">
+            <p>More Content Here</p>
+        </div>
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+        <script src="{{ url_for('static', filename='js/logic.js') }}"></script>
+    </div>
 </body>
 </html>
