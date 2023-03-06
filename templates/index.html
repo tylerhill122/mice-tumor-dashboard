@@ -15,7 +15,7 @@
                 <h1>Mice Tumor Dashboard</h1>
             </div>
             <div id="intro-box">The purpose of this dashboard is to analyze and display valuable insights from data using matplotlib and Pandas. The methods used include generating summary statistics, bar and pie charts, line plots and scatter plots with regression and Pearson r values, calculation of quartiles, IQR, and finding outliers.</div>
-            <div>
+            <div class="list-box">
                 <ul>
                     <li>Summary Statistics</li>
                     <li>Data Points per Drug Regimen</li>
@@ -31,18 +31,23 @@
             <div class="tables">{{data.summary_stats()|safe}}</div>
         </div>
         <div class="row">
+            <h2>Data Points per Drug Regimen</h2>
             <div id="barChart"></div>
         </div>
         <div class="row">
+            <h2>Distribution of Mice (Male vs. Female)</h2>
             <div id="pieChart"></div>
         </div>
         <div class="row">
+            <h2>IQR for four selected drug treatments</h2>
             <div id="iqr_df" class="tables">{{data.iqr_df()[0].to_html()|safe}}</div>
         </div>
         <div class="row">
+            <h2>Boxplot for four selected drug treatments</h2>
             <div id="boxPlot"><img src="{{ url_for('static', filename='images/tumor_volume_treatments.png') }}"></div>
         </div>
         <div class="row">
+            <h2>Average Tumor Volume over Time (Capomulin)</h2>
             <div><input id="clickMe" type="button" value="Generate new plot with 5 random mice" onclick="Line(); deleteTrace();" /></div>
             <div id="linePlot"></div>
         </div>

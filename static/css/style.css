@@ -1,6 +1,7 @@
 h1 {text-align: center;}
 h2 {
     text-align: center;
+    margin:20px;
 }
 
 #barChart {
@@ -16,6 +17,12 @@ h2 {
 #boxPlot img{
     width: 582px;
     height: 417px;
+}
+
+.list-box {
+    margin-top:20px;
+    background-color: aliceblue;
+    border-radius: 10px;
 }
 
 .summary_stats {
